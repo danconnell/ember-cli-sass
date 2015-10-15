@@ -5,7 +5,6 @@ ember-cli-sass uses libsass to preprocess your ember-cli app's files and provide
 
 - Source maps by default in development
 - Support for [`outputPaths` configuration](http://www.ember-cli.com/#configuring-output-paths)
-- Detects whether to use .scss or .sass file extensions
 - Provides the ability to specify include paths
 
 ## Installation
@@ -30,8 +29,8 @@ var app = new EmberApp({
 
 - `includePaths`: an array of include paths
 - `sourceMap`: controls whether to generate sourceMaps, defaults to `true` in development. The sourceMap file will be saved to `options.outputFile + '.map'`
-- `extension`: optionally specify the file extension for the input files. If not specified then the filesystem is checked for the existence of an `scss` or `sass` file
-- See [broccoli-sass-source-maps](https://github.com/joliss/broccoli-sass-source-maps) for a list of other supported options.
+- `extension`: specifies the file extension for the input files, defaults to `scss`
+- See [broccoli-sass-source-maps](https://github.com/aexmachina/broccoli-sass-source-maps) for a list of other supported options.
 
 ### Processing multiple files
 
@@ -46,18 +45,6 @@ var app = new EmberApp({
         'themes/alpha': '/assets/themes/alpha.css'
       }
     }
-  }
-});
-```
-
-### Using in addons
-
-To use `ember-cli-sass` for an addon's dummy app, explicitly specify the `extension` option in your `ember-cli-build.js`:
-
-```js
-var app = new EmberApp(defaults, {
-  sassOptions: {
-    extension: 'scss' // or sass
   }
 });
 ```
